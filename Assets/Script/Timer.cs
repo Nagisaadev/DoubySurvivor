@@ -28,12 +28,12 @@ public class Timer : MonoBehaviour
             if (subTimer <= 0) {
                 Summon = GameObject.Find("Spawner").GetComponent<SpawnEnemy>();
             }
-        } else if (timer < 0) {
+        } else if (timer <= 0) {
             timer = timerTime;
             subTimer = waitTime;
             Kill = GameObject.FindWithTag("Enemy").GetComponent<BornToDie>();
-        } else {
-            subTimer -= Time.deltaTime;
+        } else if (timer > 0) {
+            timer -= timer - Time.deltaTime;
         }
 
     }

@@ -3,27 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Wave
+public class GameObjectWave
 {
-    public List<GameObject> wave;
-}
-
-[System.Serializable]
-public class WaveList
-{
-    public List<Wave> waveList;
+    public List<GameObject> waveObject;
 }
 
 public class SpawnEnemy : MonoBehaviour
 {
+    public List<GameObjectWave> waves = new List<GameObjectWave>();
+ 
+    public int wave = 0;
     public Transform[] spawnPoints;
-
-    public WaveList waves = new WaveList();
 
     // Start is called before the first frame update
     void Start()
     {
-
+        wave = 0;
     }
 
     // Update is called once per frame
@@ -32,13 +27,19 @@ public class SpawnEnemy : MonoBehaviour
 
     }
 
-    public void Summon(int round)
+    public void Summon()
     {
-        for (int i = 0; i != waves[round].Length; i++) {
-            Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            GameObject Enemy = waves[round][i];
+        if (wave >= waves.Count) return;
 
-            Instantiate(Enemy, randomSpawnPoint.position, randomSpawnPoint.rotation);
+        GameObjectWave currentWave = waves[wave];
+
+        for (int i = 0; i < currentWave.waveObject.Count; i++)
+        {
+            Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            GameObject enemy = currentWave.waveObject[i];
+
+            Instantiate(enemy, randomSpawnPoint.position, randomSpawnPoint.rotation);
         }
+        wave += 1;
     }
 }
