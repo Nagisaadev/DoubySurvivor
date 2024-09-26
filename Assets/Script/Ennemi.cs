@@ -15,6 +15,7 @@ public class Ennemi : MonoBehaviour
     private void Start()
     {
         joueur = GameObject.FindWithTag("Joueur").GetComponent<Transform>();
+        target = GameObject.FindWithTag("Joueur").GetComponent<Playermvt>();
     }
 
     // Mouvement de base
@@ -51,6 +52,11 @@ public class Ennemi : MonoBehaviour
         vie -= montant;
         if (vie <= 0)
         {
+            Debug.Log("Died");
+            if (target != null)
+            {
+                target.GainExp();
+            }
             Detruire();
         }
     }

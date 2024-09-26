@@ -7,7 +7,7 @@ public class Playermvt : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float Vitesse = 5f;
-    public float ImmuneBaseTime = 3f;
+    public float ImmuneBaseTime = 0.25f;
     private float ImmuneTime;
     public Vector3 movement;
 
@@ -15,6 +15,12 @@ public class Playermvt : MonoBehaviour
 
     // Ajout d'une variable pour la vie du joueur
     public float vie = 100f;
+    public float maxHealth = 100f;
+
+    public float exp = 0f;
+
+    public float nextLvl = 10f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -55,5 +61,30 @@ public class Playermvt : MonoBehaviour
     {
         Debug.Log("Le joueur est mort");
         Destroy(gameObject);
+    }
+
+    public void Heal(float amount)
+    {
+        vie += amount;
+        if (vie > maxHealth)
+            vie = maxHealth;
+    }
+
+    public void TempShield() {
+        Immunity = true;
+        ImmuneTime = 4.2f;
+    }
+
+    public void GainExp() {
+        exp += 1;
+        if (exp >= nextLvl) {
+            exp = 0f;
+            LvUp();
+        }
+    }
+
+    public void LvUp () {
+        Heal(20);
+        nextLvl *= 1.1f;
     }
 }
