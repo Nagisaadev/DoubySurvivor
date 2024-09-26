@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Playermvt : MonoBehaviour
+
 {
     public Rigidbody2D rb;
     public float Vitesse = 85f;
@@ -15,6 +16,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
 
+
     }
 
     // Update is called once per frame
@@ -22,10 +24,11 @@ public class NewBehaviourScript : MonoBehaviour
     {
         mouvement.x = Input.GetAxisRaw("Horizontal");
         mouvement.y = Input.GetAxisRaw("Vertical");
+
         rb.MovePosition(rb.position + mouvement * Vitesse * Time.deltaTime);
     }
 
-    // Méthode pour infliger des dégâts
+    // Mï¿½thode pour infliger des dï¿½gï¿½ts
     public void PrendreDegats(float montant)
     {
         vie -= montant;
@@ -35,7 +38,7 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 
-    // Méthode appelée lorsque la vie atteint zéro
+    // Mï¿½thode appelï¿½e lorsque la vie atteint zï¿½ro
     private void Mourir()
     {
         Debug.Log("Le joueur est mort");
