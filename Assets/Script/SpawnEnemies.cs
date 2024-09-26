@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnEnemy : MonoBehaviour
+public class SpawnEnemies : MonoBehaviour
 {
     public Vector3 offset;
     public List<GameObjectWave> waves = new List<GameObjectWave>();
@@ -30,6 +30,7 @@ public class SpawnEnemy : MonoBehaviour
 
         for (int i = 0; i < currentWave.waveObject.Count; i++)
         {
+            Debug.Log($"Minion has been Summonned!");
             offset = new Vector3(Random.Range(-1, 1),Random.Range(-1, 1), 0);
             Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             GameObject enemy = currentWave.waveObject[i];

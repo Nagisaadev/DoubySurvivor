@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
     public float timer;
     public float subTimer = 0;
     
-    public SpawnEnemy Summoner;
+    public SpawnEnemies Summoner;
     private BornToDie DeathSentence;
 
     public Text timerText;
@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         timer = timerTime;
-        subTimer = waitTime;
+        subTimer = 0.01f;
     }
 
     // Update is called once per frame
@@ -29,7 +29,11 @@ public class Timer : MonoBehaviour
         if (subTimer > 0) {
             subTimer -= Time.deltaTime;
             if (subTimer <= 0) {
-                Summoner.Summon();
+                if (Summoner == null) {
+                    Debug.Log($"Error i Want to avoid\n");
+                } else {
+                    Summoner.Summon();
+                }
             }
         } else if (timer > 0) {
             timer -= Time.deltaTime;

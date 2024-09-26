@@ -12,7 +12,7 @@ public class Ennemi : MonoBehaviour
     // Initialisation
     private void Start()
     {
-        joueur = GameObject.FindWithTag("joueur").GetComponent<Transform>();
+        joueur = GameObject.FindWithTag("Joueur").GetComponent<Transform>();
     }
 
     // Mouvement de base
