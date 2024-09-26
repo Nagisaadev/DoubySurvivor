@@ -448,7 +448,6 @@ MonoBehaviour:
   timer: 0
   subTimer: 0
   Summoner: {fileID: 1661824772}
-  DeathSentence: {fileID: 0}
 --- !u!4 &732539890
 Transform:
   m_ObjectHideFlags: 0

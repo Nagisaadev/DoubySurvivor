@@ -6,8 +6,8 @@ public class Ennemi : MonoBehaviour
 {
     public float vitesse = 1.0f;
     public float vie = 100f;
-    public float degatsAuJoueur = 20f; // Dégâts infligés au joueur
-    private Transform joueur; // Le joueur est maintenant privé
+    public float degatsAuJoueur = 20f; // Dï¿½gï¿½ts infligï¿½s au joueur
+    private Transform joueur; // Le joueur est maintenant privï¿½
 
     // Initialisation
     private void Start()
@@ -21,31 +21,31 @@ public class Ennemi : MonoBehaviour
         DeplacerVersJoueur();
     }
 
-    // Fonction privée pour déplacer l'ennemi vers le joueur
+    // Fonction privï¿½e pour dï¿½placer l'ennemi vers le joueur
     private void DeplacerVersJoueur()
     {
         transform.position = Vector2.MoveTowards(transform.position, joueur.position, vitesse * Time.deltaTime);
     }
 
-    // Détection de collision avec un trigger
+    // Dï¿½tection de collision avec un trigger
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Vérifie si l'objet en collision a le tag "joueur"
+        // Vï¿½rifie si l'objet en collision a le tag "joueur"
         if (collision.CompareTag("joueur"))
         {
-            // Récupère le script "NewBehaviourScript" depuis l'objet en collision
-            NewBehaviourScript joueurScript = collision.gameObject.GetComponent<NewBehaviourScript>();
+            // Rï¿½cupï¿½re le script "NewBehaviourScript" depuis l'objet en collision
+            Playermvt joueurScript = collision.gameObject.GetComponent<Playermvt>();
 
             if (joueurScript != null)
             {
-                // Inflige des dégâts au joueur
+                // Inflige des dï¿½gï¿½ts au joueur
                 //joueurScript.PrendreDegats(degatsAuJoueur);
             }
            
         }
     }
 
-    // Méthode pour infliger des dégâts à l'ennemi
+    // Mï¿½thode pour infliger des dï¿½gï¿½ts ï¿½ l'ennemi
     public void PrendreDegats(float montant)
     {
         vie -= montant;
@@ -55,7 +55,7 @@ public class Ennemi : MonoBehaviour
         }
     }
 
-    // Fonction privée pour détruire l'ennemi
+    // Fonction privï¿½e pour dï¿½truire l'ennemi
     private void Detruire()
     {
         Destroy(gameObject);
