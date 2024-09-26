@@ -33,11 +33,13 @@ public class Timer : MonoBehaviour
         } else if (timer <= 0) {
             timer = timerTime;
             subTimer = waitTime;
-            while (GameObject.FindGameObjectsWithTag("1").Length == 0) {
-            DeathSentence = GameObject.FindWithTag("Enemy").GetComponent<BornToDie>();
-            DeathSentence.TimeToDie();
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject enemy in enemies) {
+                DeathSentence = enemy.GetComponent<BornToDie>();
+                if (DeathSentence != null) {
+                    DeathSentence.TimeToDie();
+                }
             }
         }
-
     }
 }
