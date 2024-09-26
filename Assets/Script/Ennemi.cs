@@ -9,6 +9,8 @@ public class Ennemi : MonoBehaviour
     public float degatsAuJoueur = 20f; // D�g�ts inflig�s au joueur
     private Transform joueur; // Le joueur est maintenant priv�
 
+    public Playermvt target;
+
     // Initialisation
     private void Start()
     {
@@ -31,17 +33,15 @@ public class Ennemi : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // V�rifie si l'objet en collision a le tag "joueur"
-        if (collision.CompareTag("joueur"))
+        if (collision.CompareTag("Joueur"))
         {
             // R�cup�re le script "NewBehaviourScript" depuis l'objet en collision
             Playermvt joueurScript = collision.gameObject.GetComponent<Playermvt>();
 
             if (joueurScript != null)
             {
-                // Inflige des d�g�ts au joueur
-                //joueurScript.PrendreDegats(degatsAuJoueur);
+                joueurScript.PrendreDegats(degatsAuJoueur);
             }
-           
         }
     }
 
