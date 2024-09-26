@@ -1,7 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -13,6 +13,8 @@ public class Timer : MonoBehaviour
     
     public SpawnEnemy Summoner;
     private BornToDie DeathSentence;
+
+    public Text timerText;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,7 @@ public class Timer : MonoBehaviour
             }
         } else if (timer > 0) {
             timer -= Time.deltaTime;
+            updateTimer(timer);
         } else if (timer <= 0) {
             timer = timerTime;
             subTimer = waitTime;
@@ -42,5 +45,14 @@ public class Timer : MonoBehaviour
                 }
             }
         }
+    }
+
+    void updateTimer (float currentTime) {
+        currentTime += 1;
+
+        float minutes = Mathf.FloorToInt(currentTime / 60);
+        float seconds = Mathf.FloorToInt(currentTime % 60);
+
+        timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
     }
 }
