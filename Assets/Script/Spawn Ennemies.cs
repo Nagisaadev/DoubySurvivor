@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class SpawnEnemy : MonoBehaviour
 {
+    public Vector3 offset;
     public List<GameObjectWave> waves = new List<GameObjectWave>();
  
     public int wave = 0;
@@ -20,7 +19,7 @@ public class SpawnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void Summon()
@@ -31,10 +30,11 @@ public class SpawnEnemy : MonoBehaviour
 
         for (int i = 0; i < currentWave.waveObject.Count; i++)
         {
+            offset = new Vector3(Random.Range(-1, 1),Random.Range(-1, 1), 0);
             Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             GameObject enemy = currentWave.waveObject[i];
 
-            Instantiate(enemy, randomSpawnPoint.position, randomSpawnPoint.rotation);
+            Instantiate(enemy, randomSpawnPoint.position + offset, randomSpawnPoint.rotation);
         }
         wave += 1;
     }
