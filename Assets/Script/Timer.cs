@@ -10,14 +10,14 @@ public class Timer : MonoBehaviour
     public float timer;
     public float subTimer = 0;
     
-    public SpawnEnemy Summon;
-    private BornToDie Kill;
+    public SpawnEnemy Summoner;
+    private BornToDie DeathSentence;
 
     // Start is called before the first frame update
     void Start()
     {
         timer = timerTime;
-        subTimer = 0;
+        subTimer = waitTime;
     }
 
     // Update is called once per frame
@@ -26,14 +26,17 @@ public class Timer : MonoBehaviour
         if (subTimer > 0) {
             subTimer -= Time.deltaTime;
             if (subTimer <= 0) {
-                Summon = GameObject.Find("Spawner").GetComponent<SpawnEnemy>();
+                Summoner.Summon();
             }
+        } else if (timer > 0) {
+            timer -= Time.deltaTime;
         } else if (timer <= 0) {
             timer = timerTime;
             subTimer = waitTime;
-            Kill = GameObject.FindWithTag("Enemy").GetComponent<BornToDie>();
-        } else if (timer > 0) {
-            timer -= timer - Time.deltaTime;
+            while (GameObject.FindGameObjectsWithTag("1").Length == 0) {
+            DeathSentence = GameObject.FindWithTag("Enemy").GetComponent<BornToDie>();
+            DeathSentence.TimeToDie();
+            }
         }
 
     }

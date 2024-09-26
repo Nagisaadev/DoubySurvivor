@@ -2,11 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class GameObjectWave
-{
-    public List<GameObject> waveObject;
-}
+
 
 public class SpawnEnemy : MonoBehaviour
 {
@@ -42,4 +38,10 @@ public class SpawnEnemy : MonoBehaviour
         }
         wave += 1;
     }
+}
+
+[System.Serializable]
+public class GameObjectWave
+{
+    public List<GameObject> waveObject;
 }
