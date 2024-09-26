@@ -113,8 +113,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vitesse: 0
-  vie: 100
+  vie: 10
   degatsAuJoueur: 0.5
+  target: {fileID: 0}
 --- !u!50 &744893208031145483
 Rigidbody2D:
   serializedVersion: 4
