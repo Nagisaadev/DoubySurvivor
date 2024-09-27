@@ -101,14 +101,7 @@ public class Playermvt : MonoBehaviour
     {
         Debug.Log("Le joueur est mort");
         Destroy(gameObject);
-        ResetScene();
-    }
-
-    void ResetScene()
-    {
-        Scene currentScene = SceneManager.GetActiveScene();
-
-        SceneManager.LoadScene(currentScene.name); 
+        SceneManager.LoadScene("menu");
     }
 
 
