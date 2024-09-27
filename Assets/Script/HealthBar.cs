@@ -22,7 +22,7 @@ public class HealthBar : MonoBehaviour
 
 
     
-    public void SetHealth(int health, int MaxHealth) {
+    public void SetHealth(float health, float MaxHealth) {
         slider.value = health / MaxHealth * 100;
     }
 }

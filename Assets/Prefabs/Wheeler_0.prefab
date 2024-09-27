@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vitesse: 2.5
-  vie: 10
+  vie: 6
   degatsAuJoueur: 1
 --- !u!50 &7799440075783676112
 Rigidbody2D:

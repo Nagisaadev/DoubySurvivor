@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vitesse: 0.5
-  vie: 5
+  vie: 4
   degatsAuJoueur: 0.5
 --- !u!50 &744893208031145483
 Rigidbody2D:
@@ -223,3 +223,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Projectile: {fileID: 2764131484099561626, guid: 875dbee8928153f488cd5efb2caefc2c, type: 3}
+  FireRate: 1
