@@ -12,6 +12,7 @@ public class Playermvt : MonoBehaviour
     public Vector3 movement;
 
     public bool Immunity;
+    private Animator Animator; 
 
     // Ajout d'une variable pour la vie du joueur
     public float vie = 100f;
@@ -26,6 +27,7 @@ public class Playermvt : MonoBehaviour
     void Start()
     {
         Immunity = false;
+        Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -34,18 +36,50 @@ public class Playermvt : MonoBehaviour
         movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
         transform.position += movement * Time.deltaTime * Vitesse;
 
-        if (Immunity == true) {
+        if (Immunity == true)
+        {
             ImmuneTime -= Time.deltaTime;
-            if (ImmuneTime <= 0) {
+            if (ImmuneTime <= 0)
+            {
                 Immunity = false;
             }
+        }
+        //rb.MovePosition(rb.position + mouvement * Vitesse * Time.deltaTime);
+
+        if (Input.GetAxis("Vertical") == 1)
+        {
+            Animator.SetBool("IsBackward", true);
+        }
+        else 
+        {
+            Animator.SetBool("IsBackward", false);
+        }
+
+        if (movement.magnitude>0)
+        {
+            Animator.SetBool("IsRunning", true);
+        }
+        else 
+        {
+            Animator.SetBool("IsRunning", false);
+        }
+        if (movement.x < 0)
+        {
+            // Inverser l'échelle sur l'axe X pour faire face à gauche
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (movement.x > 0)
+        {
+            // Remettre l'échelle normale pour faire face à droite
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
     // M�thode pour infliger des d�g�ts
     public void PrendreDegats(float montant)
     {
-        if (Immunity == false) {
+        if (Immunity == false)
+        {
             vie -= montant;
             Immunity = true;
             ImmuneTime = ImmuneBaseTime;
@@ -57,34 +91,38 @@ public class Playermvt : MonoBehaviour
     }
 
     // M�thode appel�e lorsque la vie atteint z�ro
-    private void Mourir()
+    void Mourir()
     {
         Debug.Log("Le joueur est mort");
         Destroy(gameObject);
     }
 
-    public void Heal(float amount)
+    void Heal(float amount)
     {
         vie += amount;
         if (vie > maxHealth)
             vie = maxHealth;
     }
 
-    public void TempShield() {
+    void TempShield()
+    {
         Immunity = true;
         ImmuneTime = 4.2f;
     }
 
-    public void GainExp() {
+    public void GainExp()
+    {
         exp += 1;
-        if (exp >= nextLvl) {
+        if (exp >= nextLvl)
+        {
             exp = 0f;
             LvUp();
         }
     }
 
-    public void LvUp () {
+    void LvUp () {
         Heal(20);
         nextLvl *= 1.1f;
     }
 }
+

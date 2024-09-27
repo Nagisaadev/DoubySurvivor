@@ -9,7 +9,7 @@ public class Ennemi : MonoBehaviour
     public float degatsAuJoueur = 20f; // D�g�ts inflig�s au joueur
     private Transform joueur; // Le joueur est maintenant priv�
 
-    public Playermvt target;
+    private Playermvt target;
 
     // Initialisation
     private void Start()
@@ -27,7 +27,7 @@ public class Ennemi : MonoBehaviour
     // Fonction priv�e pour d�placer l'ennemi vers le joueur
     private void DeplacerVersJoueur()
     {
-        transform.position = Vector2.MoveTowards(transform.position, joueur.position, vitesse * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, joueur.position, vitesse * Time.deltaTime);
     }
 
     // D�tection de collision avec un trigger
