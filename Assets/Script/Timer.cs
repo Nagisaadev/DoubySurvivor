@@ -48,7 +48,7 @@ public class Timer : MonoBehaviour
                     DeathSentence.TimeToDie();
                 }
             }
-            timerTime *= 1.2f;
+            timerTime *= 1.05f;
         }
     }
 
