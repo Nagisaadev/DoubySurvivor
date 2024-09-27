@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Playermvt : MonoBehaviour
 
@@ -95,7 +96,16 @@ public class Playermvt : MonoBehaviour
     {
         Debug.Log("Le joueur est mort");
         Destroy(gameObject);
+        ResetScene();
     }
+
+    void ResetScene()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        SceneManager.LoadScene(currentScene.name); 
+    }
+
 
     void Heal(float amount)
     {
