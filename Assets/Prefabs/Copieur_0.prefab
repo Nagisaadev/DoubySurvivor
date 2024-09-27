@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2710963210703641865}
   - component: {fileID: 5453077694394290273}
   - component: {fileID: 2230932122516925664}
+  - component: {fileID: -8178791562564732792}
   - component: {fileID: 744893208031145483}
   - component: {fileID: 5313731229688158557}
   - component: {fileID: -4201859679497737325}
@@ -117,6 +118,20 @@ MonoBehaviour:
   vitesse: 0.5
   vie: 4
   degatsAuJoueur: 0.5
+--- !u!114 &-8178791562564732792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411558944528067559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3a80291a571834faee37bd2cade1e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 2764131484099561626, guid: 875dbee8928153f488cd5efb2caefc2c, type: 3}
+  FireRate: 1
 --- !u!50 &744893208031145483
 Rigidbody2D:
   serializedVersion: 4
