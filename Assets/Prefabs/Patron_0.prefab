@@ -113,9 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e550f9afd75b8d94aaed2fc666b5775b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vitesse: 0.5
-  vie: 30
-  degatsAuJoueur: 1
+  vitesse: 1
+  vie: 10
+  degatsAuJoueur: 2
 --- !u!50 &7696723316210432889
 Rigidbody2D:
   serializedVersion: 4

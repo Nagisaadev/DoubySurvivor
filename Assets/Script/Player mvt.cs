@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Playermvt : MonoBehaviour
 
@@ -22,6 +23,9 @@ public class Playermvt : MonoBehaviour
 
     public float nextLvl = 10f;
 
+    public HealthBar hp;
+    
+    public HealthBar xp;
 
     // Start is called before the first frame update
     void Start()
@@ -81,10 +85,12 @@ public class Playermvt : MonoBehaviour
         if (Immunity == false)
         {
             vie -= montant;
+            hp.SetHealth(vie, maxHealth);
             Immunity = true;
             ImmuneTime = ImmuneBaseTime;
             if (vie <= 0)
             {
+
                 Mourir();
             }
         }
@@ -95,13 +101,23 @@ public class Playermvt : MonoBehaviour
     {
         Debug.Log("Le joueur est mort");
         Destroy(gameObject);
+        ResetScene();
     }
+
+    void ResetScene()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        SceneManager.LoadScene(currentScene.name); 
+    }
+
 
     void Heal(float amount)
     {
         vie += amount;
         if (vie > maxHealth)
             vie = maxHealth;
+        hp.SetHealth(vie, maxHealth);
     }
 
     void TempShield()
@@ -118,6 +134,7 @@ public class Playermvt : MonoBehaviour
             exp = 0f;
             LvUp();
         }
+        xp.SetHealth(exp, nextLvl);
     }
 
     void LvUp () {

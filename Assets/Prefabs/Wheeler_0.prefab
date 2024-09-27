@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e550f9afd75b8d94aaed2fc666b5775b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vitesse: 2.5
-  vie: 10
+  vitesse: 4.5
+  vie: 6
   degatsAuJoueur: 1
 --- !u!50 &7799440075783676112
 Rigidbody2D:

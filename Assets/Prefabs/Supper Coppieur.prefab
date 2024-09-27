@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 2710963210703641865}
   - component: {fileID: 5453077694394290273}
   - component: {fileID: 2230932122516925664}
+  - component: {fileID: -6598737019684497197}
   - component: {fileID: 744893208031145483}
   - component: {fileID: 5313731229688158557}
   - component: {fileID: -4201859679497737325}
-  - component: {fileID: -6598737019684497197}
   m_Layer: 0
-  m_Name: Copieur_0
+  m_Name: Supper Coppieur
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 411558944528067559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,9 +114,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e550f9afd75b8d94aaed2fc666b5775b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vitesse: 0.5
-  vie: 4
-  degatsAuJoueur: 0.5
+  vitesse: 0
+  vie: 10
+  degatsAuJoueur: 0
+--- !u!114 &-6598737019684497197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411558944528067559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3a80291a571834faee37bd2cade1e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 2764131484099561626, guid: 65137c1bc9513fb4c93bee48806d7116, type: 3}
+  FireRate: 0.05
 --- !u!50 &744893208031145483
 Rigidbody2D:
   serializedVersion: 4
@@ -210,17 +224,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-6598737019684497197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411558944528067559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b3a80291a571834faee37bd2cade1e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Projectile: {fileID: 2764131484099561626, guid: 875dbee8928153f488cd5efb2caefc2c, type: 3}
-  FireRate: 1
